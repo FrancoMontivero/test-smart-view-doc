@@ -48,6 +48,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          files: _output/*.pdf
           tag_name: ${{ github.event.inputs.version }}
           release_name: "Smart view ${{ github.event.inputs.version }}"
+      
+      - name: Upload pdfs
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          for file in ./path_to_files/*; do
+            if [ -f "$file" ]; then
+              echo "Uploading $file..."
+              gh release upload ${{ steps.create_release.outputs.upload_url }} "$file"
+            fi
+          done
