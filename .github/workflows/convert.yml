@@ -6,12 +6,6 @@ on:
       version:
         description: 'Version'
         required: true
-      branch:
-        description: 'Branch'
-        required: true  
-
-permissions:
-  contents: write
 
 jobs:
   converttopdf:
@@ -27,7 +21,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y npm
-          sudo apt-get install yq
+          sudo brew install yq
           npm install -g md-to-pdf
 
       - name: Convert .md's to .pdf's
