@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.inputs.branch }}
 
       - name: Install dependencies
         run: |
@@ -23,8 +21,11 @@ jobs:
           sudo apt-get install -y npm
           sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
           sudo chmod +x /usr/local/bin/yq
-          yq -- version
           npm install -g md-to-pdf
+
+      - name: Verify yq Installation
+        run: |
+          yq --version
 
       - name: Convert .md's to .pdf's
         run: |
