@@ -22,11 +22,6 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.inputs.branch }}
-      
-      - name: Create Tag
-        run: |
-          git tag -a ${{ github.event.inputs.version }} -m "Version ${{ github.event.inputs.version }}"
-          git push origin ${{ github.event.inputs.version }}
 
       - name: Install dependencies
         run: |
