@@ -3,3 +3,5 @@ pdfs:
     output: ms-backend.pdf
   - path: ms-files-server/README.md
     output: ms-files-server.pdf
+  - path: ms-payload-store/README.md
+    output: ms-payload-store.pdf
