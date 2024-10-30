@@ -52,7 +52,6 @@ jobs:
           release_name: "Smart view ${{ github.event.inputs.version }}"
       
       - name: Upload pdfs
-        uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
