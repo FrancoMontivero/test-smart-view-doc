@@ -57,7 +57,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          for file in ./path_to_files/*; do
+          for file in _output/*; do
             if [ -f "$file" ]; then
               echo "Uploading $file..."
               gh release upload ${{ steps.create_release.outputs.upload_url }} "$file"
