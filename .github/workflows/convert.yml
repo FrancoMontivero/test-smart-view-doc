@@ -38,7 +38,7 @@ jobs:
             cat $path | md-to-pdf --stylesheet "/assets/css/style.css" > _output/$output
           done
 
-      - name: Generate tag
+      - name: Generate identity
         run: |
           git config --local user.name "Github Actions Bot"
           git config --local user.email "<>"
@@ -50,7 +50,9 @@ jobs:
         with:
           tag_name: ${{ github.event.inputs.version }}
           release_name: "Smart view ${{ github.event.inputs.version }}"
-      
+          draft: false
+          prerelease: false
+
       - name: Upload pdfs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
