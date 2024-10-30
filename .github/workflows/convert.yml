@@ -21,7 +21,9 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y npm
-          sudo brew install yq
+          sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq
+          sudo chmod +x /usr/local/bin/yq
+          yq -- version
           npm install -g md-to-pdf
 
       - name: Convert .md's to .pdf's
