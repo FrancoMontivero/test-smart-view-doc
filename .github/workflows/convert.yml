@@ -35,7 +35,7 @@ jobs:
             path=$(yq e ".pdfs[$file].path" _pdfs-index.yml)
             output=$(yq e ".pdfs[$file].output" _pdfs-index.yml)
             echo; echo "Generating PDF to $path"
-            cat "$path" | md-to-pdf --stylesheet "/assets/css/style.css" > _output/$output
+            cat "$path" | md-to-pdf --stylesheet "assets/css/style.css" > _output/$output
           done
 
       - name: Generate identity
