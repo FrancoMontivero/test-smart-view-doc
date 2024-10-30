@@ -205,7 +205,7 @@ label[type="button"] {
   line-height: normal;
 }
 
-.button[aria-disabled="true"], 
+.button[aria-disabled="true"],
 input:disabled,
 textarea:disabled,
 select:disabled,
@@ -698,8 +698,8 @@ sup {
   top: -0.4em;
 }
 
-sub { 
-  top: 0.3em; 
+sub {
+  top: 0.3em;
 }
 
 /* Classes for notices */

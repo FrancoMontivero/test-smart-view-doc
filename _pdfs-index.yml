@@ -1,2 +1,5 @@
 pdfs:
-  - path: /ms-backend/
+  - path: /ms-backend/README.md
+    output: ms-backend.pdf
+  - path: /ms-files-server/README.md
+    output: ms-files-server.pdf
