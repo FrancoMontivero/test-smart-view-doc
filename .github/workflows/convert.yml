@@ -26,16 +26,12 @@ jobs:
       - name: Convert .md's to .pdf's
         run: |
           mkdir -p _output
-          echo $(pwd)
-          num_files=$(yq e '.pdfs | length' _pdfs-index.yml)
+          num_files=$(yq e '.pdfs | length' ${{ github.workspace }}/_pdfs-index.yml)
           for file in $(seq 0 $(($num_files - 1))); do
             path=${{ github.workspace }}/$(yq e ".pdfs[$file].path" _pdfs-index.yml)
             output=${{ github.workspace }}/_output/$(yq e ".pdfs[$file].output" _pdfs-index.yml)
             echo; echo "Generating PDF to $path"
-            echo $path
-            echo $output
             cd $(dirname $path)
-            FILE=$(cat $(basename $path))
             cat $(basename $path) | md-to-pdf --stylesheet "${{ github.workspace }}/assets/css/style.css" > $output
           done
 
