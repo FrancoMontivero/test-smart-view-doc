@@ -33,7 +33,7 @@ jobs:
             output=${{ github.workspace }}/_output/$(yq e ".pdfs[$file].output" $path_pdf_index)
             echo; echo "Generating PDF to $path"
             cd $(dirname $path)
-            cat $(basename $path) | md-to-pdf --stylesheet "${{ github.workspace }}/assets/css/style.css" > $output
+            cat $(basename $path) | md-to-pdf > $output
           done
 
       - name: Generate identity
