@@ -1,9 +1,25 @@
 pdfs:
+  - path: Launcher/README.md
+    output: Launcher.pdf
+  - path: ms-agent/README.md
+    output: ms-agent.pdf
+  - path: ms-auth-gateway/README.md
+    output: ms-auth-gateway.pdf
   - path: ms-backend/README.md
     output: ms-backend.pdf
+  - path: ms-config/README.md
+    output: ms-config.pdf
+  - path: ms-eureka/README.md
+    output: ms-eureka.pdf
   - path: ms-files-server/README.md
     output: ms-files-server.pdf
   - path: ms-payload-store/README.md
     output: ms-payload-store.pdf
-  - path: ms-agent/README.md
-    output: ms-agent.pdf
+  - path: ms-telegram-sender/README.md
+    output: ms-telegram-sender.pdf
+  - path: ms-worker/README.md
+    output: ms-worker.pdf
+  - path: ms-worker-notifications/README.md
+    output: ms-worker-notifications.pdf
+  - path: Zookeeper/README.md
+    output: Zookeeper.pdf  
