@@ -37,7 +37,7 @@ jobs:
             echo; echo "Generating PDF to $path"
             cd $(dirname $path)
             FILE=$(cat $(basename $path))
-            cd .
+            cd
             echo $(ls -a)
             echo $FILE | md-to-pdf --stylesheet "assets/css/style.css" > _output/$output
           done
