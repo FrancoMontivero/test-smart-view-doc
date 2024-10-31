@@ -2,7 +2,7 @@
 
 # Introducción
 
-![ms-backend.jpg](ms-backend/images/ms-backend.jpg)
+![ms-backend.jpg](./images/ms-backend.jpg)
 
 El servicio **ms-backend** es un componente que provee una API REST para ser consumida por el frontend. Este servicio se conecta a una base de datos **MongoDB** para obtener información relacionada con monitoreos e historiales (“historical”). Para algunas solicitudes, es necesario realizar **aggregations** que permiten mostrar los datos de la manera esperada por el frontend.
 
@@ -147,7 +147,7 @@ El sistema de almacenamiento de alertas en Zookeeper organiza las alertas bajo u
     Dentro de cada nodo de hash se guarda la información completa de la alerta. La información se almacena como data del nodo Zookeeper correspondiente.
     
 
-![alerts-nodes.jpg](ms-backend/images/alerts-nodes.jpg)
+![alerts-nodes.jpg](./images/alerts-nodes.jpg)
 
 ### Ventajas de esta Estructura
 

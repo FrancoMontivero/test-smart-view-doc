@@ -2,7 +2,7 @@
 
 # Introducción
 
-![ms-files-server.jpg](ms-files-server/images/ms-files-server.jpg)
+![ms-files-server.jpg](./images/ms-files-server.jpg)
 
 `ms-files-server` es un servicio desarrollado para servir archivos estáticos desde una ubicación específica en el sistema de archivos local. Permite a los usuarios acceder a estos archivos a través de una URL pública, facilitando la distribución de contenido estático, como documentos, scripts, imágenes, etc. Este servicio es útil para entornos en los que se necesita compartir recursos de manera rápida y sencilla sin la necesidad de un servidor de aplicaciones más complejo.
 
@@ -36,7 +36,7 @@ Los archivos se almacenan en una estructura de carpetas en la ubicación especif
 
 `ms-files-server` utiliza el header `If-None-Match` si se encuentra en la petición de un archivo para determinar si la versión local del servicio que solicita este archivo es la misma que tiene el `ms-files-server`. Este header contiene un valor MD5 y `ms-files-server` compara el MD5 enviado por el header con el MD5 del archivo local que posee.
 
-![ms-files-server_df.jpg](ms-files-server/images/ms-files-server_df.jpg)
+![ms-files-server_df.jpg](./images/ms-files-server_df.jpg)
 
 # Enlaces útiles
 
