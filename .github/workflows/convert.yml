@@ -30,6 +30,7 @@ jobs:
       - name: Convert .md's to .pdf's
         run: |
           mkdir -p _output
+          echo $(pwd)
           num_files=$(yq e '.pdfs | length' _pdfs-index.yml)
           for file in $(seq 0 $(($num_files - 1))); do
             path=$(yq e ".pdfs[$file].path" _pdfs-index.yml)
