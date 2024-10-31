@@ -23,24 +23,20 @@ jobs:
           sudo chmod +x /usr/local/bin/yq
           npm install -g md-to-pdf
 
-      - name: Verify yq Installation
-        run: |
-          yq --version
-
       - name: Convert .md's to .pdf's
         run: |
           mkdir -p _output
           echo $(pwd)
           num_files=$(yq e '.pdfs | length' _pdfs-index.yml)
           for file in $(seq 0 $(($num_files - 1))); do
-            path=$(yq e ".pdfs[$file].path" _pdfs-index.yml)
-            output=$(yq e ".pdfs[$file].output" _pdfs-index.yml)
+            path=${{ github.workspace }}/$(yq e ".pdfs[$file].path" _pdfs-index.yml)
+            output=${{ github.workspace }}/_output/$(yq e ".pdfs[$file].output" _pdfs-index.yml)
             echo; echo "Generating PDF to $path"
+            echo $path
+            echo $output
             cd $(dirname $path)
             FILE=$(cat $(basename $path))
-            cd
-            echo $(ls -a)
-            echo $FILE | md-to-pdf --stylesheet "assets/css/style.css" > _output/$output
+            cat $(basename $path) | md-to-pdf --stylesheet "${{ github.workspace }}/assets/css/style.css" > $output
           done
 
       - name: Generate identity
@@ -62,4 +58,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release upload ${{ github.event.inputs.version }} _output/*.pdf
+          gh release upload ${{ github.event.inputs.version }} ${{ github.workspace }}/_output/*.pdf
