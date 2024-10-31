@@ -5,3 +5,5 @@ pdfs:
     output: ms-files-server.pdf
   - path: ms-payload-store/README.md
     output: ms-payload-store.pdf
+  - path: ms-agent/README.md
+    output: ms-agent.pdf
